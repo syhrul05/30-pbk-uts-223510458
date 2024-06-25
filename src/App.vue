@@ -1,53 +1,57 @@
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <h1>SYAHRUL BOUTIQUE</h1>
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">Post</router-link></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <q-layout view="hHh Lpr lFf">
+    <!-- Header -->
+    <q-header elevated>
+      <q-toolbar>
+        <q-btn flat dense to="/" class="text-primary">Home</q-btn>
+        <q-btn flat dense to="/about" class="text-primary">Post</q-btn>
+        <q-btn flat dense to="/albums" class="text-primary">Album</q-btn>
+        
+        <q-space />
 
-  <RouterView />
+        <q-btn flat dense round icon="menu" @click="toggleLeftDrawer" />
+      </q-toolbar>
+    </q-header>
+
+    <!-- Main content -->
+    <q-page-container>
+      <router-view></router-view>
+    </q-page-container>
+
+    <!-- Footer -->
+    <q-footer class="text-center" elevated>
+      &copy; SYAHRUL RAMADHAN THIS BOUTIQUE
+    </q-footer>
+  </q-layout>
 </template>
 
-<style>
-/* Add some basic styling for the navbar */
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em;
+<script>
+export default {
+  name: 'App',
+
+  methods: {
+    toggleLeftDrawer() {
+      // Implement drawer toggling logic if needed
+    }
+  }
+};
+</script>
+
+<style scoped>
+.q-header {
   background-color: #f8f8f8;
 }
 
-nav h1 {
-  margin: 0;
-  font-size: 1.5em;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1em;
-  margin: 0;
-  padding: 0;
-}
-
-nav li {
-  margin: 0;
-}
-
-nav a {
-  text-decoration: none;
+.text-primary {
   color: #333;
-  font-size: 1em;
 }
 
-nav a:hover {
+.text-primary:hover {
   color: #007bff;
+}
+
+.q-footer {
+  background-color: #f8f8f8;
+  color: #333;
 }
 </style>

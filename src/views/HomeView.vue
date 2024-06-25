@@ -10,24 +10,24 @@
           <div class="input-group">
             <input
               type="text"
-              class="form-control"
+              class="form-control text-center"
               v-model="newActivity.name"
               placeholder="Nama Barang"
             />
             <input
               type="date"
-              class="form-control"
+              class="form-control text-center"
               v-model="newActivity.date"
             />
             <select
-              class="form-select"
+              class="form-select text-center"
               v-model="newActivity.status"
             >
               <option value="Belum Selesai">Belum Selesai</option>
               <option value="Selesai">Selesai</option>
             </select>
             <button
-              class="btn btn-success"
+              class="btn btn-success btn-green"
               @click="addOrUpdateActivity"
             >
               {{ isEditing ? 'Update' : 'Tambah' }}
@@ -36,11 +36,11 @@
         </div>
 
         <!-- Filter aktivitas berdasarkan status -->
-        <div class="form-group mb-3">
+        <div class="form-group mb-3 text-center">
           <label for="filter" class="form-label">Filter:</label>
           <select
             id="filter"
-            class="form-select"
+            class="form-select text-center"
             v-model="filter"
           >
             <option value="">Semua</option>
@@ -50,7 +50,7 @@
         </div>
 
         <!-- Daftar aktivitas -->
-        <table class="table table-hover table-striped">
+        <table class="table table-hover table-striped text-center">
           <thead>
             <tr>
               <th>No</th>
@@ -193,6 +193,17 @@ export default {
   margin-left: 10px;
 }
 
+.btn-green {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.btn-green:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
 .card-header {
   padding: 15px;
 }
@@ -200,5 +211,86 @@ export default {
 .card {
   margin-bottom: 20px;
   padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.form-control, .form-select, .input-group-text {
+  margin-bottom: 10px;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;  /* Center the text */
+}
+
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.table th {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+h3 {
+  margin: 0;
+}
+
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+select.form-select {
+  cursor: pointer;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.text-center {
+  font-size: 16px;
+}
+
+input[type="date"] {
+  font-family: Arial, sans-serif;
 }
 </style>

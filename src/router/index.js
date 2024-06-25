@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PostComponent from '../components/PostComponent.vue'
 import TodosComponent from '../components/TodosComponent.vue'
+import AlbumsComponent from '../components/AlbumsComponent.vue'
+import AlbumPhotosComponent from '../components/AlbumPhotosComponent.vue'
+import PhotoDetailComponent from '../components/PhotoDetailComponent.vue' // Import PhotoDetailComponent
 
 const routes = [
   {
@@ -12,9 +15,6 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import('../views/AboutView.vue')
   },
   {
@@ -27,7 +27,24 @@ const routes = [
     component: TodosComponent,
     props: { title: 'Todos List', todos: [{ id: 1, text: 'Learn Vue' }, { id: 2, text: 'Build an App' }] }
   },
-  { path: '/:pathMatch(.*)*', redirect: '/post' } // Redirect to /post by default for unknown paths
+  {
+    path: '/albums',
+    name: 'albums',
+    component: AlbumsComponent
+  },
+  {
+    path: '/albums/:id',
+    name: 'album-photos',
+    component: AlbumPhotosComponent,
+    props: true
+  },
+  {
+    path: '/photos/:id',
+    name: 'photo-detail',
+    component: PhotoDetailComponent,
+    props: true
+  },
+  { path: '/:pathMatch(.*)*', redirect: '/post' }
 ]
 
 const router = createRouter({
